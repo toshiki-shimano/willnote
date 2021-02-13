@@ -1,0 +1,28 @@
+/*ドロアーは分かりやすように*/
+.noteIndexPage table tbody tr:hover {
+    cursor: move;
+}
+
+/*indexビューのcss*/
+.noteIndexPage .tr-color {
+    background-color: #FFCC66;
+}
+
+/*showビューのcss*/
+.noteShowPage tbody {
+    background-color: #FFFFDD;	
+}
+.noteShowPage table {
+    width: 900px;
+    margin: 0 auto;
+}
+/*editビューのcss*/
+.noteEditPage .space {
+    width: 50%;
+    margin: 0 auto;
+}
+/*newビューのcss*/
+.noteNewPage .space {
+    width: 50%;
+    margin: 0 auto;
+}

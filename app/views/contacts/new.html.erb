@@ -1,0 +1,45 @@
+<%= render "partialadmin/blognav" %>
+<div class="postPage">
+  <div class="contactNew">
+  <div class="container">
+    <%= form_with(model: @contact, url: contacts_confirm_path, local: true) do |f| %>
+    <% if @contact.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% @contact.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+          <% end %> 
+        </ul>
+      </div>
+    <% end %> 
+     <div class="mt-5"></div>
+     <div class="form-group space">
+       <%= f.label :name %>
+       <%= f.text_field :name, class: "form-control", placeholder: "お名前を入力してください" %>
+     </div>
+     <div class="form-group space mt-2">
+       <%= f.label :email %>
+       <%= f.text_field :email, class: "form-control", placeholder: "お客様のメールアドレスを入力してください"%>
+     </div>
+     <div class="form-group space mt-2">
+       <%= f.label :content %>
+       <%= f.text_area :content, class: "form-control", placeholder: "お問い合わせの内容を入力してください" %>
+     </div>
+     <div class="text-center mt-3">
+       <%= f.submit "確認画面へ", class: "btn btn-info" %>
+     </div>
+    <% end %>
+ 
+  </div>
+  </div>
+  <%= render "partialadmin/drawer" %>
+</div>
+<script>
+'use strict'
+$(document).ready(function(){
+  $('.drawermark').on('click', function() {
+    $('#drawerside, #draweropen').toggleClass('show');
+  });
+}); 
+</script>

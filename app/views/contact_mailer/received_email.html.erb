@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h2><%= @user.name %>様よりお問い合わせがありました</h2>
+    <hr>
+    <p>Name: <%= @user.name %></p>
+    <p>Email: <%= @user.email %></p>
+    <hr>
+    <h3>【お客様のお問い合わせ内容】</h3>
+    <div><%= @user.content %></div>
+    <hr>
+  </body>
+</html>

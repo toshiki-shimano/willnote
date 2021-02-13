@@ -1,0 +1,8 @@
+<% post.comments.each do |comment| %>
+  <div class="mb-2">
+    <span><strong><%= comment.user.name %>：</strong><%= comment.comment %></span>
+    <% if comment.user == current_user %>
+      <%= link_to "", post_comment_path(post.id, comment), method: :delete, remote: true, class: "delete-comment" %>  
+    <% end %>
+  </div>
+<% end %>  

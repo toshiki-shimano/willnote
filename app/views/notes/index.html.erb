@@ -1,0 +1,77 @@
+<%= render "partialnote/normalnav" %>
+<div class="noteIndexPage">
+  <div class="container">
+
+    <h1 class="mt-3 text-center">ノート一覧</h1>
+    <%= link_to "リスト登録", new_note_path, class: "btn btn-info" %>
+
+    <div class="mb-3"></div>
+    <table class="table table-hover table-striped table-bordered " id="sort">
+      <thead class="thead-default">
+        <tr class="tr-color" >
+          <th><%= Note.human_attribute_name(:name) %></th>
+          <th><%= Note.human_attribute_name(:created_at) %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @notes.each do |note| %>
+          <tr id="<%= note.id.to_s %>">
+            <td class="connectedSortable"><%= link_to note.name, note_path(note) %></td>
+            <td class="connectedSortable"><%= note.created_at %></td>
+            <td class="text-center">
+                <%= link_to "編集", edit_note_path(note), class: "btn btn-info mr-3" %>
+                <%= link_to "削除", note, class: "btn btn-danger", method: :delete, data: {confirm: "#{note.name}を削除してよろしいですか？"} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <p class="text-right"><button id="cookieRemove" class="btn btn-secondary">リストの順番リセット</button></p>
+  </div>
+</div>
+
+<script>
+'use strict'
+$(function(){
+  $('tbody').sortable({
+    stop: function(event, ui) {
+      var id = $(this).parent().attr('id');
+      var i = 0;
+      var cookie = new Array;
+      $('#' + id + ' tbody tr').each(function() {
+        var number = $(this).attr('id');
+        cookie[i] = number + ":" + i; /*<tr>のid属性１とか０が入り、変数iを使って、0:0や1:1など*/
+        i++;
+      });
+      $.cookie(id, cookie.join(','), { expires: 60 }); /*(sort, ['0:0', '1:1', ~])*/
+    }
+  });
+
+  $('tbody').disableSelection(); /*cookieを読み出して並び替える処理、つまりページ読み込み時に実行される処理 */
+  var table_name = 'sort';
+  var index_cookie = $.cookie(table_name);
+  if(index_cookie) {
+    var index_hash = new Array();
+    $('#' + table_name + ' tbody tr').each(function() {
+      var html = $(this).html(); /*<tr>要素の<td>要素をhtml()メソッドで取得*/
+      var number = $(this).attr('id');
+      index_hash[number] = html;
+    });
+    var list = index_cookie.split(','); /* , でjoinで繋げた文字列を配列に*/
+    var i = 0;
+    $('#' + table_name + ' tbody tr').each(function() {
+      var val = (list[i].split(':'))[0];
+      $(this).html(index_hash[val]);
+      $(this).attr('id', val);
+      i++;
+    });
+  }
+  
+  $('#cookieRemove').on('click', function() {
+     var deleteCookie = 'sort'
+     $.removeCookie(deleteCookie);
+  });
+  
+});
+</script>

@@ -1,0 +1,79 @@
+<%= render "partialadmin/blognav" %>
+<div class="postPage">
+  <div class="adminprofile">
+     <div class="container">
+       <div class="row profileall">
+
+         <div class="col-md-6">
+           <div class="text-center mt-3">
+             <i class="fab fa-canadian-maple-leaf fa-2x"></i>
+             <span class="profileset">プロフィール</span>
+             <i class="fab fa-canadian-maple-leaf fa-2x"></i>
+           </div>
+           <div class="profileparts mt-1">
+             <p><i class="fab fa-envira"></i></i><span>ネーム</span></p>
+             <p>トシ</p>
+           </div>
+           <div class="profileparts mt-1">
+             <p><i class="fab fa-envira"></i></i><span>好きなモノ</span></p>
+             <p>フレンチトースト、辛いラーメン</p> 
+           </div>
+           <div class="profileparts mt-1">
+             <p><i class="fab fa-envira"></i></i><span>勉強中</span></p>
+             <p>Ruby、Rails、html、Css、javascript</p>
+             <p>Rspec、Git、Sql</p>
+           </div>
+           <div class="profileparts mt-1">
+             <p><i class="fab fa-envira"></i></i><span>紹介文</span></p>
+             <p>好きな食べ物を探しながらプログラミングの勉強をしております。
+             特にRubyとRailsを中心に興味があり、お仕事に繋げることが目標です！<br>
+             大変な道のりですが頑張ります。
+             </p> 
+           </div>
+         </div>
+
+         <div class="col-md-6 px-0">
+           <%= image_pack_tag "frenchtoast.jpg", class: "photoMain" %>
+           <div class="row">
+             <div class="col-md-3">
+               <%= image_pack_tag "frenchtoast.jpg", class: "select1" %>
+             </div>
+             <div class="col-md-3">
+               <%= image_pack_tag "millecrepes.jpg", class: "select2" %>
+             </div>
+              <div class="col-md-3">
+               <%= image_pack_tag "guratan.jpg", class: "select3" %>
+             </div>
+              <div class="col-md-3">
+               <%= image_pack_tag "ice.jpg", class: "select4" %>
+             </div>
+           </div>
+         </div>
+
+
+       </div>
+     </div>
+     <%= render "partialadmin/drawer" %>
+   </div>  
+</div>
+
+<script>
+'use strict'
+$(function() {
+  $('.select1').on('click', function() {
+    $('.photoMain').attr('src', '/packs/media/images/frenchtoast-4ea712ed8b462e5f1c859486ba5d0ff5.jpg');
+  });
+
+  $('.select2').on('click', function() {
+    $('.photoMain').attr('src', '/packs/media/images/millecrepes-607e9b901fef51895129a475f1f4838c.jpg');
+  });
+
+  $('.select3').on('click', function() {
+    $('.photoMain').attr('src', '/packs/media/images/guratan-b1588a910863764123c926552075a732.jpg');
+  });
+
+  $('.select4').on('click', function() {
+    $('.photoMain').attr('src', '/packs/media/images/ice-0a3a95bf323868ddbbbabd23d1005857.jpg');
+  });
+});
+</script>

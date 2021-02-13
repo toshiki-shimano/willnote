@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-light">
+      <div class="navbar-brand">Willnote</div>
+      <ul class="navbar-nav ml-auto">
+        <% if current_user %>
+          <li class="nav-item"><%= link_to "#{current_user.name}さん", edit_user_path(current_user), class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "ノート一覧", notes_path, class: "nav-link" %></li>
+          <% if current_user.admin? %>
+            <li class="nav-item"><%= link_to "ユーザー一覧", users_path, class: "nav-link" %></li>
+          <% end %> 
+          <li class="nav-item"><%= link_to "管理人ブログ", adminhome_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "ログアウト", logout_path, method: :delete, class: "nav-link" %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+</nav>
+
+<% if flash.notice.present? %>
+    <div class="alert alert-success" id="flashMessage">
+      <%= flash.notice %>
+    </div>
+<% end %>
+<script>
+'use strict'
+$(function(){
+  $("#flashMessage").fadeOut(5000);
+});
+</script>  

@@ -1,0 +1,37 @@
+<%= render "partialadmin/blognav" %>
+<div class="postPage">
+<%= image_pack_tag "coffee2.jpg", class: "hometitle" %>
+<%= image_pack_tag "willnote-logo.png", class: "logo" %>
+  <div class="container text-center">
+    <div class="mt-4 homehead">
+      <h1>～美味しい食べ物探しの旅～</h1>
+      <p>こちらは管理人のブログでございます<br>
+      自由気ままに美味しかった食べ物を投稿しておりますので<br>
+      ごゆっくりとお過ごしください。</p>
+    </div>
+    <div class="archive">
+      <h3 class="archivehead">
+      <i class="fab fa-canadian-maple-leaf leafbrown"></i>
+      スイーツや食べ物
+      <i class="fab fa-canadian-maple-leaf leafbrown"></i>
+      </h3>
+      <div class="archivemain mt-3">
+        <figure>
+          <%= image_pack_tag "ice.jpg", class: "caption" %>
+          <figcaption><strong>～カフェで頼んだコーヒーフロートです～</strong></figcaption>
+        </figure>
+        <figure>
+          <%= image_pack_tag "guratan.jpg", class: "caption" %>
+          <figcaption><strong>～近くのイタリアンレストランで頼んだラザニアです～</strong></figcaption>
+        </figure>
+      </div>
+    </div> 
+       
+  </div>
+  <div class="foot">
+   <span class="mr-4">
+    ~willnote~
+   </span>
+  </div>
+  <%= render "partialadmin/drawer" %>
+</div>

@@ -1,0 +1,36 @@
+<div class="container text-center">
+  <div class="mt-5"></div> 
+  <h1>お問い合わせ内容</h1>
+    <%= form_with(model: @contact, url: contacts_complete_path, method: :post, local: true) do |f| %> 
+     <div class="confirm_item">
+       <h4>●お名前●</h4>
+       <div>
+         <%= f.hidden_field :name %>
+         <%= @contact.name %>
+       </div>  
+     </div>
+     <div class="confirm_item">
+       <h4>●メールアドレス●</h4>
+       <div>
+         <%= f.hidden_field :email %>
+         <%= @contact.email %>
+       </div>    
+     </div>
+     <div class="confirm_item">
+       <h4>●お問い合わせ内容●</h4>
+       <div>
+         <%= f.hidden_field :content %>
+         <%= @contact.content %>
+        </div> 
+     </div>
+     <div>
+       <%= f.submit "戻る", name: 'back' , class: "btn btn-danger backbotton"%> <%# 前の画面に戻った時に入力内容を残す為%>
+       <%= f.submit "送信する", class: "btn btn-primary"%>
+     </div>
+     <div class="mt-2">
+       <i class="fas fa-exclamation-triangle"></i>
+       <span>前のページに戻るときは必ず「戻る」ボタンを押してください</span>
+       <i class="fas fa-exclamation-triangle"></i>
+     </div>
+    <% end %>
+</div>

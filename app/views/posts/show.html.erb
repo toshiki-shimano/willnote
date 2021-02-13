@@ -1,0 +1,79 @@
+<%= render "partialadmin/blognav" %>
+<div class="postPage">
+  <div class="container">
+    
+    <div class="col-md-10 col-md-offset-1 mx-auto postShow-wrap">
+      <div class="row post-wrap">
+
+        <div class="col-md-8"><%# 投稿画像フィールドを８割分確保%>
+          <div class="card-left">                  <%# cardのimg-top属性を使って綺麗に納めている。mdの中に納める%>
+            <%= image_tag @post.photos.first.image.url(:medium), class: "card-img-top" %>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-right">
+            <div class="card-right-comment">
+              <div class="card-right-name">
+                <i class="fab fa-canadian-maple-leaf"></i>
+                <strong class="mx-1"><%= @post.user.name %></strong>
+                <i class="fab fa-canadian-maple-leaf"></i>
+              </div>
+              <div class="mx-1 my-3">
+                <i class="far fa-bookmark"></i>
+                <strong><%= @post.caption %></strong>
+                <i class="far fa-bookmark"></i>
+              </div>
+              <div class="comment-post-id">
+                <div class="m-2">
+                  <div id="comment-post-<%= @post.id.to_s%>">
+                    <%= render 'comment_list', post: @post %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row parts">
+              <div id="like-icon-post-<%= @post.id.to_s %>">
+                <% if @post.liked_by(current_user).present? %>
+                  <%= link_to "いいねを取り消す", post_like_path(@post.id, @post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                <% else %>
+                  <%= link_to "いいね", post_likes_path(@post), method: :POST, remote: true, class: "love hide-text" %>
+                <% end %>
+              </div>
+            </div>
+
+            <div id="like-text-post-<%= @post.id.to_s %>">
+              <%= render "like_text", { likes: @post.likes } %>
+           </div>
+
+            <div class="post-time ml-2">
+              <%= time_ago_in_words(@post.created_at).upcase %>前 
+            </div>
+            <hr>
+            <div id="anchorComment"> 
+              <div class="row parts" id="comment-form-post-<%= @post.id.to_s %>">
+                <%= form_with model: [@post, Comment.new], class: "w-100" do |f| %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :post_id, value: @post.id %>
+                  <%= f.text_field :comment, autofocus: true, class: "form-control comment-input border-0", placeholder: "20文字以内でコメント...", autocomplete: :off %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="text-center">
+    <% if current_user.admin? %>
+      <%= link_to "削除", post_path(@post), class: "btn btn-danger", method: :delete, data: {confirm: "投稿を削除しますか？"} %>
+    <% end %>
+    <div class="text-right">
+      <%= link_to "投稿一覧に戻る", posts_path%>
+    </div>
+  </div> 
+  <div class="mt-5"></div> 
+  </div>
+  <%= render "partialadmin/drawer" %>
+</div>
+
