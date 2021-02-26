@@ -9,11 +9,15 @@ Rails.application.routes.draw do
 
   
   get "/registration", to: "users#new"
-  resources :users, only: %i(index create destroy edit update) 
+  resources :users, only: %i(index create destroy edit update) do
+    collection do
+      get 'search'
+    end
+  end
 
 
   root to: "notes#index"
-  resources :notes
+  resources :notes 
 
   #ネストして親子関係を明示
   resources :posts, only: %i(new create index show destroy) do

@@ -111,6 +111,18 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     launchy (2.5.0)
       addressable (~> 2.7)
     listen (3.3.1)
@@ -273,6 +285,7 @@ DEPENDENCIES
   email_spec (~> 2.2.0)
   factory_bot_rails (~> 5.2.0)
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.2)
   meta-tags
   mini_magick

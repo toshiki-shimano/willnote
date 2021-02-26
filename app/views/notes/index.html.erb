@@ -28,6 +28,9 @@
       </tbody>
     </table>
     <p class="text-right"><button id="cookieRemove" class="btn btn-secondary">リストの順番リセット</button></p>
+    
+    <%= paginate(@notes) %>
+    <div class="text-center mb-4"><%= page_entries_info(@notes) %></div>
   </div>
 </div>
 

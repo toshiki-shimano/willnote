@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :required_admin, only: %i(index destroy)
+  before_action :required_admin, only: %i(index destroy search)
   before_action :login_required, only: %i(edit update)
 
   def index
@@ -37,6 +37,13 @@ class UsersController < ApplicationController
     else
       flash.now[:alert] = "変更に失敗しました"
       render action: :edit  
+    end
+  end
+
+  def search
+    @js_users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format| 
+    format.json { render action: :index, json: @js_users } 
     end
   end
 

@@ -8,7 +8,7 @@ class PostsController < ApplicationController
    end
    
    def index
-     @posts = User.find(1).posts.limit(10).includes(:photos, :user).order(created_at: :desc)
+     @posts = Post.all.limit(10).includes(:photos, :user).order(created_at: :desc).page(params[:page]).per(2)
    end
    
    def new

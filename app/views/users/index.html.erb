@@ -2,13 +2,13 @@
 <div class="userIndexPage">
   <div class="container">
     <h1 class="text-center mt-3">ユーザー一覧</h1>
-
+  
     <table>
     <tr><th>『退会者数：<%= @disusers.count %>』</th></tr>
     </table>
 
     <div class="mb-3"></div>
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover table-bordered mb-4">
       <thead class="thead-default">
         <tr class="tr-color">
           <th><%= User.human_attribute_name(:name) %></th>
@@ -30,6 +30,10 @@
         <% end %>
       </tbody>
     </table>
-
+    <table class="table table-bordered table-warning" style="width: 450px; margin-left: 55px">
+      <tr><td><strong>『ユーザー検索』</strong><input type=form id="form" placeholder="ユーザー名を入力してください" style="width: 250px"/></td></tr>
+    </table>
+    <table id="result" class="table table-hover table-bordered table-sm table-dark mb-3" style="width: 450px; margin-left: 55px" >
+    </table> 
   </div>
 </div>

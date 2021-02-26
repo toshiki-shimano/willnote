@@ -4,7 +4,7 @@ class NotesController < ApplicationController
 
 
   def index
-    @notes = current_user.notes.order(created_at: :desc)
+    @notes = current_user.notes.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new

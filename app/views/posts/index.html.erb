@@ -63,4 +63,5 @@
   </div>
   <%= render "partialadmin/drawer" %>    
 </div>
-
+<%= paginate(@posts) %>
+<div class="text-center mb-5"><%= page_entries_info(@posts) %></div>
