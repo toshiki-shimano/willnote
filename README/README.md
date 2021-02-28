@@ -6,7 +6,7 @@
   => The Demofile below is how to use willnote. I urge you to see it once.  
   ![](willnoteDemo.gif)  
 
-* Usage <!-- willnoteの基本的な使い方など -->
+* Usage <!-- willnoteの基本的な使い方など -->  
   => How to use willnote are ...  
   ● You can manage task that you should do.  
   ● Tasks what you saved cans sort on the home screen.  
