@@ -4,7 +4,7 @@
 
 * Demo <!-- 動作例や画像の貼り付け -->  
   => The Demofile below is how to use willnote. I urge you to see it once.  
-  => ![](willnoteDemo.gif)
+  ![](willnoteDemo.gif)  
 
 * Usage <!-- willnoteの基本的な使い方など -->
   => How to use willnote are ...  
@@ -31,7 +31,7 @@
   => This software is released under the MIT License, see LICENSE.txt.<br>
   
 * Author <!-- 作成情報 --><br>
-  => Toshiki Shimano<
+  => Toshiki Shimano
 
 
 
