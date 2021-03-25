@@ -11,7 +11,7 @@
   <% end %>
 
   <%= form_with model: @note, local: true do |f| %>
-    <div class="form-group space mt-2">
+    <div class="form-group space mt-2"> <%# spaceはオリジナルcss名%>
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "タイトル" %>
     </div>

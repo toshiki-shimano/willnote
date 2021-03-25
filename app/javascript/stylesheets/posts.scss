@@ -135,8 +135,12 @@
     /*実際のドロアーの幅と縦*/
     width: 270px; 
     height: 100%;
+    /*ナビバーの色と距離*/ 
+    padding: 24px 24px 0 24px;
+    background: #000;
+    color: white;
 }
-
+/*このshowクラスを付ける場所に注意！*/ 
 .show {
     transform: translate3d(-270px, 0, 0);
 }
@@ -145,11 +149,6 @@
     transition: transform 0.3s;
 }
 
-.postPage nav  {
-    padding: 24px 24px 0 24px;
-    background: #000;
-    color: white;
-}
 .postPage nav ul {
     margin: 0;
     padding: 0;

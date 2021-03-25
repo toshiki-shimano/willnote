@@ -7,8 +7,8 @@ class PostsController < ApplicationController
    def profile
    end
    
-   def index
-     @posts = Post.all.limit(10).includes(:photos, :user).order(created_at: :desc).page(params[:page]).per(2)
+   def index #今回は管理者しか投稿できないが少しでもDBの負担を減らすためにincludesをする
+     @posts = Post.includes(:photos, :user).order(created_at: :desc).page(params[:page]).per(2)
    end
    
    def new
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
    end
 
    def show
-      @post = User.find(1).posts.find_by(id: params[:id])
+      @post = Post.find_by(id: params[:id])
    end
 
    def destroy

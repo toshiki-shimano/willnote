@@ -1,3 +1,5 @@
 $('#comment-post-<%= @post.id.to_s %>').
   html('<%= j render "posts/comment_list", { post: @post } %>');
 $('#comment-form-post-<%= @post.id.to_s %> #comment_comment').val("");
+<%# form_withで作成した時に使うモデルとカラムの名前を使って、railsが自動的にcomment_commentというidを作り、そのvalueの中身を空欄にする%>
+<%#この場合、cssみたいに-form-postのidからinputタグのcomment_commentというidに絞っている%>

@@ -2,7 +2,6 @@ class NotesController < ApplicationController
   before_action :login_required
   before_action :set_note, only: %i(show edit update destroy)
 
-
   def index
     @notes = current_user.notes.order(created_at: :desc).page(params[:page]).per(5)
   end

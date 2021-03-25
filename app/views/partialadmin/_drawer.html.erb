@@ -1,15 +1,18 @@
  <nav id="draweropen">
+
     <div class="titlemark">
       <i class="fab fa-canadian-maple-leaf"></i>
       WillNote
       <i class="fab fa-canadian-maple-leaf"></i>
     </div>
+
     <ul>
       <li><%= link_to "投稿一覧", posts_path(current_user), class: "nav-link a_link" %></li>
       <li><%= link_to "プロフィール", adminprofile_path(current_user), class: "nav-link a_link" %></li>
       <li><%= link_to "お問い合わせ", contacts_new_path(current_user), class: "nav-link a_link" %></li>
       <li><%= link_to "ホーム", adminhome_path(current_user), class: "nav-link a_link" %></li>
     </ul>
+    
   </nav>
   <script>
   'use strict'

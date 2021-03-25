@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
 
   root to: "notes#index"
-  resources :notes 
-
+  resources :notes
+  
   #ネストして親子関係を明示
   resources :posts, only: %i(new create index show destroy) do
     resources :photos, only: %i(create)

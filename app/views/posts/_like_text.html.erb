@@ -1,17 +1,22 @@
 <strong>
   <% likes.each.with_index do |like, index| %>
+
     <% if likes.size == 1 %>
       <%= like.user.name %> </strong> が「いいね！」しました
+
     <% elsif like == likes.last %>
       </strong>と<strong>
       <%= + like.user.name %></strong> が「いいね！」しました
-    <% elsif index > 1 %>
-      </strong><%= "と " + (likes.size-index).to_s + " 他 " %> が「いいね！」しました
-      <% break %>
+
+    <% elsif index > 1 %> <%# likesモデルの数が4人だと4-2で他2人%>
+      </strong><%= "と " + "他" + (likes.size-index).to_s + "人" %> が「いいね！」しました
+      <% break %><%# 4人以上では3週目のループでeach文から抜ける %>
+
     <% elsif index == likes.size-2 || index == 1 %>
       <%= like.user.name %>
+
     <% else %>
       <%= like.user.name + ", " %>    
     <% end %>
+
   <% end %>
-</strong>

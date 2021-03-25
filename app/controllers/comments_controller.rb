@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
         if @comment.destroy
             respond_to :js
         else
-           flash[:alert] = "コメントの削除に失敗しました"
+           flash.now[:alert] = "コメントの削除に失敗しました"
         end
     end
 

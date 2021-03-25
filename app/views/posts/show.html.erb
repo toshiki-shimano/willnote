@@ -11,7 +11,7 @@
           </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4"><%# 12分割中の4部分%>
           <div class="card-right">
             <div class="card-right-comment">
               <div class="card-right-name">
@@ -57,6 +57,7 @@
                   <%= f.hidden_field :user_id, value: current_user.id %>
                   <%= f.hidden_field :post_id, value: @post.id %>
                   <%= f.text_field :comment, autofocus: true, class: "form-control comment-input border-0", placeholder: "20文字以内でコメント...", autocomplete: :off %>
+                  <%= f.submit "コメントする", class: "send-comment" %>
                 <% end %>
               </div>
             </div>
