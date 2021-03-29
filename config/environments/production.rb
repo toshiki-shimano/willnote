@@ -59,9 +59,9 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "willnote_production"
-
+  config.action_mailer.default_url_options = { host: "#{ENV['HEROKU_APPNAME']}.herokuapp.com" }
   config.action_mailer.perform_caching = false
-  host = "#{ENV['HEROKU_APPNAME']}.herokuapp.com"
+  # host = "#{ENV['HEROKU_APPNAME']}.herokuapp.com"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
