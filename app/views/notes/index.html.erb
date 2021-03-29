@@ -44,7 +44,7 @@ $(function() {
     $(".sortable").sortable({
         update: function(ev, ui) {
             var updateArray =  $(".sortable").sortable("toArray").join(","); /*65,64,66,63：④③②①を③②④①にした*/
-            $.cookie("sortable", updateArray, {expires: 30});/*keyは変数か自分でその場でつけた値の名前*/
+            $.cookie("sortable", updateArray, {expires: 90});/*keyは変数か自分でその場でつけた値の名前*/
         }       
     });
     if($.cookie("sortable")) {
