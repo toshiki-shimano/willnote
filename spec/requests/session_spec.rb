@@ -17,7 +17,7 @@ RSpec.describe "Session", type: :request do
       end
     
       it "登録されたユーザーがログインができるか" do
-        sign_go(new_user)
+        sign_go(new_user) #helperに定義したオリジナルメソッド 
         get notes_path
         expect(response).to have_http_status(200)
       end 
