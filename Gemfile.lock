@@ -288,7 +288,6 @@ DEPENDENCIES
   kaminari
   listen (~> 3.2)
   meta-tags
-  mini_magick
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
