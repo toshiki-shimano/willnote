@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.discard
-    redirect_to users_path, notice: "ユーザー「#{@user.name}」を削除しました"
+    redirect_to users_path, notice: "ユーザー「#{@user.name}」を退会させました"
   end
 
   def edit #adminも一般ユーザーも変更可
