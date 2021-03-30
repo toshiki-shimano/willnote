@@ -36,7 +36,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem "email_spec", "~> 2.2.0"
-  
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -68,3 +68,4 @@ gem 'meta-tags'
 gem 'discard'
 gem 'kaminari'
 # gem 'acts_as_list'
+gem 'fog-aws'
